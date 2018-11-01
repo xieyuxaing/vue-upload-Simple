@@ -185,6 +185,7 @@
       },
       remove () {
         this.file.cancel()
+        this.file.aborted = true
       },
       retry () {
         this.file.retry()
@@ -303,7 +304,7 @@
     display: block;
   }
   .uploader-file[status="success"] .uploader-file-remove {
-    display: none;
+    display: block;
   }
   .uploader-file[status="error"] .uploader-file-progress {
     background: #ffe0e0;

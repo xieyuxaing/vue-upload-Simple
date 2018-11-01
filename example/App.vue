@@ -10,7 +10,7 @@
     data () {
       return {
         options: {
-          target: '//localhost:3000/upload', // '//jsonplaceholder.typicode.com/posts/',
+          target: 'localhost:80/api/model/uploadModelFloder?name=test', // '//jsonplaceholder.typicode.com/posts/',
           testChunks: false
         },
         attrs: {
@@ -36,7 +36,7 @@
         if (newFileList.length > 0) {
           if (newFileList[0].isFolder) {
             for (var n in fileList) {
-              if (fileList[n].size > 4 * 1024) {
+              if (fileList[n].size > 200 * 1024 * 1024) {
                 fileList[n].ignored = true
               }
             }
@@ -45,7 +45,7 @@
       },
       fileAdded (files) {
         if (files.relativePath.split('/').length === 1) {
-          if (files.size > 4 * 1024) {
+          if (files.size > 200 * 1024 * 1024) {
             files.ignored = true
           }
         }
